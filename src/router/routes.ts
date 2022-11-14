@@ -3,16 +3,35 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    component: () => import('layouts/HoofLayout.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('src/pages/IndexPage.vue'),
+      },
+      {
+        path: 'about',
+        component: () => import('src/pages/AboutPage.vue'),
+      },
+      {
+        path: 'syntra',
+        component: () => import('src/pages/SyntraPage.vue'),
+      },
+    ],
   },
+
+  // {
+  //   path: '/',
+  //   component: () => import('layouts/MainLayout.vue'),
+  //   children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+  // },
 
   // Always leave this as last one,
   // but you can also remove it
-  {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
-  },
+  // {
+  //   path: '/:catchAll(.*)*',
+  //   component: () => import('pages/ErrorNotFound.vue'),
+  // },
 ];
 
 export default routes;
